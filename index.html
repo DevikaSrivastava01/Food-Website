@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food In - Delicious Meals Delivered</title>
+  <link rel="stylesheet" href="index.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Auth Gate (Shown if user not logged in) -->
+  <div class="auth_gate" id="authGate">
+    <div class="auth_gate_content">
+      <div class="auth_gate_header">
+        <div class="logo">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=100" alt="Food In Logo" />
+          <span>food in</span>
+        </div>
+        <h1>Welcome to Food In</h1>
+        <p>Please login or sign up to continue</p>
+      </div>
+
+      <div class="auth_gate_image">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600" alt="Delicious Food" />
+      </div>
+
+      <div class="auth_gate_buttons">
+        <a href="login.html" class="btn btn_auth">
+          <i class="ri-login-box-line"></i> Login
+        </a>
+        <a href="signup.html" class="btn btn_auth btn_signup">
+          <i class="ri-user-add-line"></i> Sign Up
+        </a>
+      </div>
+
+      <div class="auth_gate_features">
+        <div class="feature_item">
+          <i class="ri-restaurant-2-line"></i>
+          <span>Delicious Meals</span>
+        </div>
+        <div class="feature_item">
+          <i class="ri-truck-line"></i>
+          <span>Fast Delivery</span>
+        </div>
+        <div class="feature_item">
+          <i class="ri-secure-payment-line"></i>
+          <span>Secure Payment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Website Content -->
+  <div class="main_content" id="mainContent">
+    
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="logo">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=100" alt="Food In Logo" />
+        <span>food in</span>
+      </div>
+
+      <ul class="nav_items" id="nav_links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li>
+          <a href="cart.html" class="cart_link">
+            <i class="ri-shopping-cart-line"></i> Cart 
+            <span class="cart_count" id="cartCount">0</span>
+          </a>
+        </li>
+        <li><button class="btn">Explore</button></li>
+        <li><button class="btn btn_logout" id="logoutBtn">Logout</button></li>
+      </ul>
+
+      <div class="nav_menu" id="menu_btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero_content">
+        <div class="hero_text">
+          <h2>Welcome to Fast Food Restaurant</h2>
+          <h1>Enjoy our<br />delicious meal</h1>
+          <p class="hero_description">Experience the finest culinary delights delivered straight to your doorstep. Fresh ingredients, amazing flavors!</p>
+          <div class="hero_buttons">
+            <button class="btn" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+              Explore More
+            </button>
+            <button class="btn btn_secondary">
+              <i class="ri-play-circle-line"></i> Watch Video
+            </button>
+          </div>
+        </div>
+
+        <div class="hero_image">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600" alt="Delicious Food" />
+          <button class="btn btn_book_order" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+            <i class="ri-restaurant-line"></i> Book Order Food
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Dishes -->
+    <section class="section" id="services">
+      <h1 class="section_title">Popular Dishes</h1>
+      <p class="section_subtitle">Discover our most loved menu items</p>
+      
+      <div class="dishes_grid">
+        <div class="dish_card" data-name="Cheese Burger" data-price="₹120" data-id="1">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="Cheese Burger" />
+          <div class="dish_info">
+            <h3>Cheese Burger</h3>
+            <p class="dish_description">Juicy beef patty with melted cheese, lettuce, and tomato</p>
+            <p class="dish_price">₹120</p>
+            <div class="stars" data-rating="4.5"></div>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="dish_card" data-name="Veggie Pizza" data-price="₹150" data-id="2">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Veggie Pizza" />
+          <div class="dish_info">
+            <h3>Veggie Pizza</h3>
+            <p class="dish_description">Fresh vegetables with mozzarella on crispy crust</p>
+            <p class="dish_price">₹150</p>
+            <div class="stars" data-rating="4"></div>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="dish_card" data-name="Momos" data-price="₹80" data-id="3">
+          <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400" alt="Momos" />
+          <div class="dish_info">
+            <h3>Momos</h3>
+            <p class="dish_description">Steamed dumplings with spicy red chutney</p>
+            <p class="dish_price">₹80</p>
+            <div class="stars" data-rating="4.5"></div>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="dish_card" data-name="French Fries" data-price="₹60" data-id="4">
+          <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400" alt="French Fries" />
+          <div class="dish_info">
+            <h3>French Fries</h3>
+            <p class="dish_description">Crispy golden fries with seasoned salt</p>
+            <p class="dish_price">₹60</p>
+            <div class="stars" data-rating="4.5"></div>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="dish_card" data-name="Spicy Wrap" data-price="₹100" data-id="5">
+          <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=400" alt="Spicy Wrap" />
+          <div class="dish_info">
+            <h3>Spicy Wrap</h3>
+            <p class="dish_description">Grilled chicken with spicy sauce in soft tortilla</p>
+            <p class="dish_price">₹100</p>
+            <div class="stars" data-rating="4"></div>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="dish_card" data-name="Fresh Salad" data-price="₹90" data-id="6">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400" alt="Fresh Salad" />
+          <div class="dish_info">
+            <h3>Fresh Salad</h3>
+            <p class="dish_description">Mixed greens with balsamic vinaigrette</p>
+            <p class="dish_price">₹90</p>
+            <div class="stars" data-rating="4.5"></div>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section menu_section">
+      <h2 class="section_title">Our Full Menu</h2>
+      <p class="section_subtitle">Browse our complete collection of delicious items</p>
+      
+      <div class="menu_grid">
+        <div class="menu_item" data-name="Cheese Burger" data-price="₹120" data-id="1">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="Cheese Burger">
+          <div class="menu_info">
+            <h3>Cheese Burger</h3>
+            <p class="dish_price">₹120</p>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="menu_item" data-name="Veggie Pizza" data-price="₹150" data-id="2">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Veggie Pizza">
+          <div class="menu_info">
+            <h3>Veggie Pizza</h3>
+            <p class="dish_price">₹150</p>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="menu_item" data-name="French Fries" data-price="₹60" data-id="4">
+          <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400" alt="French Fries">
+          <div class="menu_info">
+            <h3>French Fries</h3>
+            <p class="dish_price">₹60</p>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="menu_item" data-name="Spicy Wrap" data-price="₹100" data-id="5">
+          <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=400" alt="Spicy Wrap">
+          <div class="menu_info">
+            <h3>Spicy Wrap</h3>
+            <p class="dish_price">₹100</p>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="menu_item" data-name="Fresh Salad" data-price="₹90" data-id="6">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400" alt="Fresh Salad">
+          <div class="menu_info">
+            <h3>Fresh Salad</h3>
+            <p class="dish_price">₹90</p>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="menu_item" data-name="Vanilla Ice Cream" data-price="₹70" data-id="7">
+          <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400" alt="Vanilla Ice Cream">
+          <div class="menu_info">
+            <h3>Vanilla Ice Cream</h3>
+            <p class="dish_price">₹70</p>
+            <button class="btn add_to_cart">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="about_header">
+        <div>
+          <h2>About Us</h2>
+          <h1>What our customers<br />say about us</h1>
+        </div>
+        <p>We provide the best dining experience with quality food and excellent service. Our commitment to freshness and taste makes us the top choice for food lovers.</p>
+      </div>
+
+      <div class="testimonials">
+        <div class="testimonial_card">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400" alt="Restaurant Interior" />
+          <div class="testimonial_text">
+            <div class="testimonial_author">
+              <i class="ri-user-line"></i>
+              <span>John Doe</span>
+            </div>
+            <p>"Absolutely amazing food and fast delivery! The quality is always top-notch. I order from Food In at least twice a week!"</p>
+            <div class="stars" data-rating="5"></div>
+          </div>
+        </div>
+
+        <div class="testimonial_card">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400" alt="Restaurant Interior" />
+          <div class="testimonial_text">
+            <div class="testimonial_author">
+              <i class="ri-user-line"></i>
+              <span>Sarah Smith</span>
+            </div>
+            <p>"Loved the taste and presentation. Highly recommend to everyone! The momos are to die for and the service is exceptional."</p>
+            <div class="stars" data-rating="5"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="contact_content">
+        <div class="contact_text">
+          <h2>Download App</h2>
+          <h1>Get started with Food In today!</h1>
+          <p>Download our app for easy ordering, exclusive deals, and faster checkout. Available on both iOS and Android platforms.</p>
+          <div class="app_buttons">
+            <button class="btn app_btn">
+              <i class="ri-google-play-fill"></i> Google Play
+            </button>
+            <button class="btn app_btn">
+              <i class="ri-apple-fill"></i> App Store
+            </button>
+          </div>
+        </div>
+        <div class="contact_image">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600" alt="Mobile App" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer_content">
+        <div class="footer_col">
+          <div class="logo">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=100" alt="Logo" />
+            <span>food in</span>
+          </div>
+          <p class="footer_text">Our job is to fill your tummy with delicious food and fast delivery. We are committed to quality and customer satisfaction.</p>
+          <ul class="footer_socials">
+            <li><a href="#"><i class="ri-instagram-fill"></i></a></li>
+            <li><a href="#"><i class="ri-facebook-fill"></i></a></li>
+            <li><a href="#"><i class="ri-twitter-fill"></i></a></li>
+            <li><a href="#"><i class="ri-youtube-fill"></i></a></li>
+          </ul>
+        </div>
+
+        <div class="footer_col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Menu</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+          </ul>
+        </div>
+
+        <div class="footer_col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Online Ordering</a></li>
+            <li><a href="#">Fast Delivery</a></li>
+            <li><a href="#">Catering</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Loyalty Program</a></li>
+          </ul>
+        </div>
+
+        <div class="footer_col">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><i class="ri-phone-line"></i> +91 1234567890</li>
+            <li><i class="ri-mail-line"></i> info@foodin.com</li>
+            <li><i class="ri-map-pin-line"></i> Kanpur, UP, India</li>
+            <li><i class="ri-time-line"></i> Mon-Sun: 9AM - 11PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer_bar">
+        <p>&copy; 2025 Food In Restaurant. All rights reserved.</p>
+        <div class="footer_links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <span class="scroll_top" id="scroll_top">
+      <i class="ri-arrow-up-circle-line"></i>
+    </span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

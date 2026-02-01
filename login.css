@@ -1,0 +1,447 @@
+/* ==========================================================
+   🎨 GLOBAL STYLES
+   ========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ==========================================================
+   📦 LOGIN CONTAINER
+   ========================================================== */
+.login_container {
+  display: flex;
+  max-width: 1100px;
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================
+   🖼️ LEFT SIDE - IMAGE SECTION
+   ========================================================== */
+.login_image {
+  flex: 1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.login_image::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+.login_image_content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo span {
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+}
+
+.login_image_content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.login_image_content p {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 400px;
+}
+
+/* ==========================================================
+   📝 RIGHT SIDE - LOGIN FORM
+   ========================================================== */
+.login_form {
+  flex: 1;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login_form h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+/* ==========================================================
+   🔲 FORM ELEMENTS
+   ========================================================== */
+.form_group {
+  margin-bottom: 25px;
+}
+
+.form_group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.form_group label i {
+  font-size: 18px;
+  color: #667eea;
+}
+
+.form_group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form_group input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ==========================================================
+   ✅ FORM OPTIONS
+   ========================================================== */
+.form_options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.remember_me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  cursor: pointer;
+}
+
+.remember_me input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.forgot_password {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.forgot_password:hover {
+  color: #764ba2;
+}
+
+/* ==========================================================
+   🔘 BUTTONS
+   ========================================================== */
+.btn_login {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn_login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.btn_login:active {
+  transform: translateY(0);
+}
+
+.btn_login:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==========================================================
+   ➗ DIVIDER
+   ========================================================== */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 30px 0;
+  color: #999;
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.divider span {
+  padding: 0 15px;
+  font-weight: 600;
+}
+
+/* ==========================================================
+   🌐 SOCIAL LOGIN
+   ========================================================== */
+.social_login {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.btn_social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn_social i {
+  font-size: 20px;
+}
+
+.btn_google:hover {
+  background: #f8f9fa;
+  border-color: #db4437;
+}
+
+.btn_google i {
+  color: #db4437;
+}
+
+.btn_facebook:hover {
+  background: #f8f9fa;
+  border-color: #1877f2;
+}
+
+.btn_facebook i {
+  color: #1877f2;
+}
+
+/* ==========================================================
+   🔗 LINKS
+   ========================================================== */
+.signup_link {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.signup_link a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.signup_link a:hover {
+  color: #764ba2;
+}
+
+.back_home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back_home:hover {
+  color: #667eea;
+  gap: 12px;
+}
+
+.back_home i {
+  font-size: 18px;
+}
+
+/* ==========================================================
+   👁️ PASSWORD TOGGLE
+   ========================================================== */
+.password-toggle {
+  transition: all 0.3s ease;
+}
+
+.password-toggle:hover {
+  color: #764ba2 !important;
+  transform: scale(1.1);
+}
+
+/* ==========================================================
+   📱 RESPONSIVE DESIGN
+   ========================================================== */
+@media (max-width: 968px) {
+  .login_container {
+    flex-direction: column;
+  }
+
+  .login_image {
+    padding: 40px 30px;
+  }
+
+  .login_image_content h2 {
+    font-size: 28px;
+  }
+
+  .login_form {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .login_form {
+    padding: 30px 20px;
+  }
+
+  .login_form h1 {
+    font-size: 26px;
+  }
+
+  .login_image {
+    padding: 30px 20px;
+  }
+
+  .login_image_content h2 {
+    font-size: 24px;
+  }
+
+  .social_login {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================
+   🎬 ANIMATIONS
+   ========================================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login_container {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Input focus effect */
+.form_group input:focus {
+  animation: inputFocus 0.3s ease;
+}
+
+@keyframes inputFocus {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

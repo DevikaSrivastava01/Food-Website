@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Food In</title>
+  <link rel="stylesheet" href="login.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="login_container">
+    <!-- Left Side - Image Section -->
+    <div class="login_image">
+      <div class="login_image_content">
+        <div class="logo">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=100" alt="Food In Logo" />
+          <span>food in</span>
+        </div>
+        <h2>Welcome Back!</h2>
+        <p>Login to access your account and order delicious meals delivered to your doorstep.</p>
+      </div>
+    </div>
+
+    <!-- Right Side - Login Form -->
+    <div class="login_form">
+      <h1>Login</h1>
+      <p class="subtitle">Enter your credentials to access your account</p>
+
+      <form id="loginForm">
+        <div class="form_group">
+          <label for="email">
+            <i class="ri-mail-line"></i>
+            Email Address
+          </label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        </div>
+
+        <div class="form_group">
+          <label for="password">
+            <i class="ri-lock-line"></i>
+            Password
+          </label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        </div>
+
+        <div class="form_options">
+          <label class="remember_me">
+            <input type="checkbox" name="remember" />
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot_password">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn_login">Login</button>
+
+        <div class="divider">
+          <span>OR</span>
+        </div>
+
+        <div class="social_login">
+          <button type="button" class="btn_social btn_google">
+            <i class="ri-google-fill"></i>
+            Continue with Google
+          </button>
+          <button type="button" class="btn_social btn_facebook">
+            <i class="ri-facebook-fill"></i>
+            Continue with Facebook
+          </button>
+        </div>
+
+        <p class="signup_link">
+          Don't have an account? <a href="signup.html">Sign Up</a>
+        </p>
+
+        <a href="index.html" class="back_home">
+          <i class="ri-arrow-left-line"></i>
+          Back to Home
+        </a>
+      </form>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+
+</body>
+</html>

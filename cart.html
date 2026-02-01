@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Orders - Food In</title>
+  <link rel="stylesheet" href="index.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    /* ========== ORDER PAGE CUSTOM STYLES ========== */
+    body {
+      background: #f8f9fa;
+    }
+
+    .order_container {
+      max-width: 1000px;
+      margin: 100px auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    .order_header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .order_header h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .order_header p {
+      color: #666;
+      font-size: 1rem;
+    }
+
+    .order_list {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+
+    .order_list th, .order_list td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    .order_list th {
+      background: #ff5722;
+      color: white;
+      font-weight: bold;
+    }
+
+    .order_total {
+      text-align: right;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin: 1.5rem 0;
+      color: #333;
+    }
+
+    .confirm_btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #ff5722, #ff7849);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .confirm_btn:hover {
+      background: linear-gradient(135deg, #e64a19, #ff5722);
+      transform: translateY(-2px);
+    }
+
+    .empty_message {
+      text-align: center;
+      color: #999;
+      font-size: 1.1rem;
+      padding: 2rem;
+    }
+
+    .success_message {
+      text-align: center;
+      background: #4CAF50;
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      display: none;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+    .back_home {
+      display: block;
+      margin: 2rem auto 0;
+      text-align: center;
+      color: #ff5722;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .back_home:hover {
+      color: #e64a19;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="order_container">
+    <div class="order_header">
+      <h1>Your Order Summary</h1>
+      <p>Review your selected items before confirming your order</p>
+    </div>
+
+    <table class="order_list" id="orderList">
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody id="orderItems">
+        <!-- Cart items will be injected here -->
+      </tbody>
+    </table>
+
+    <p class="order_total" id="orderTotal">Total: ₹0</p>
+
+    <button class="confirm_btn" id="confirmOrder">Confirm Order</button>
+    <p class="success_message" id="successMessage">
+      ✅ Your order has been confirmed! Thank you for choosing Food In 🍔
+    </p>
+
+    <a href="index.html" class="back_home">
+      <i class="ri-arrow-left-line"></i> Back to Home
+    </a>
+  </div>
+
+  <script>
+    // ==========================================================
+    // 🛒 ORDER PAGE SCRIPT
+    // ==========================================================
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const orderItems = document.getElementById('orderItems');
+      const orderTotal = document.getElementById('orderTotal');
+      const confirmOrder = document.getElementById('confirmOrder');
+      const successMessage = document.getElementById('successMessage');
+
+      // Get cart from localStorage
+      const savedCart = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+      if (savedCart.length === 0) {
+        orderItems.innerHTML = '<tr><td colspan="2" class="empty_message">🛒 Your cart is empty!</td></tr>';
+        confirmOrder.disabled = true;
+        confirmOrder.style.opacity = "0.6";
+        return;
+      }
+
+      // Display cart items
+      let total = 0;
+      savedCart.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.price}</td>
+        `;
+        orderItems.appendChild(row);
+
+        total += parseInt(item.price.replace('₹', ''));
+      });
+
+      orderTotal.textContent = 'Total: ₹' + total;
+
+      // Confirm order
+      confirmOrder.addEventListener('click', () => {
+        successMessage.style.display = 'block';
+        localStorage.removeItem('cartItems');
+        confirmOrder.disabled = true;
+        confirmOrder.style.opacity = "0.6";
+
+        // Optional redirect after 3 seconds
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 3000);
+      });
+    });
+  </script>
+
+</body>
+</html>
